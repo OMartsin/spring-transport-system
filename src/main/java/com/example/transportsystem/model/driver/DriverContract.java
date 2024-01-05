@@ -25,9 +25,10 @@ public class DriverContract {
     @Column(nullable = false)
     private Date issueDate;
 
-    @Basic(optional = true)
-    @Column(nullable = true)
     private Date expirationDate;
+
+    @ManyToOne
+    private Driver driver;
 
     public DriverContract(Integer number, Date issueDate, Date expirationDate) {
         this.number = number;

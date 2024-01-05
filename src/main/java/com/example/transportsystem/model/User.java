@@ -23,4 +23,9 @@ public class User {
     @Basic(optional = false)
     @Column(nullable = false,  length = 128)
     private String password;
+
+    public User(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
 }

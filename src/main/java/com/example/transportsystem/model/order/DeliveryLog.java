@@ -1,13 +1,19 @@
 package com.example.transportsystem.model.order;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "delivery_log")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class DeliveryLog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +24,8 @@ public class DeliveryLog {
     private Delivery delivery;
 
     @Basic(optional = false)
-    @Column(nullable = false)
-    private String log;
+    @Column(nullable = false, length = 128)
+    private String description;
 
     @Basic(optional = false)
     @Column(nullable = false)
@@ -33,8 +39,8 @@ public class DeliveryLog {
     @Column(nullable = false)
     private Float longitude;
 
-    @Basic(optional = true)
-    @Column(nullable = true)
+    @Basic
+    @Column(length = 128)
     private String address;
 
     @Basic(optional = false)

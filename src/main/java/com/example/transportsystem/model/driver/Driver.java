@@ -2,13 +2,17 @@ package com.example.transportsystem.model.driver;
 
 import com.example.transportsystem.model.User;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "driver")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Driver {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +26,7 @@ public class Driver {
     @Column(nullable = false, length = 64)
     private String surname;
 
-    @Basic(optional = true)
-    @Column(nullable = true, length = 64)
+    @Column(length = 64)
     private String patronymic;
 
     @Basic(optional = false)
@@ -50,8 +53,12 @@ public class Driver {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @ManyToOne
-    @JoinColumn(name = "contract_id", nullable = false)
-    private DriverContract driverContract;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contract_id")
+    private Set<DriverContract> driverContract;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "driver_id")
+    private Set<DriverLicense> driverLicenses;
 
 }

@@ -2,21 +2,23 @@ package com.example.transportsystem.model.order;
 
 import com.example.transportsystem.model.Client;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.sql.Timestamp;
-import java.util.Currency;
 import java.util.List;
 
 @Entity
 @Table(name = "del_order")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic(optional = false)
-    @Column(nullable = false)
+    @Column(nullable = false, length = 32)
     private String name;
 
     @ManyToOne
