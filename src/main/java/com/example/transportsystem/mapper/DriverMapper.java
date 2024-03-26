@@ -1,6 +1,6 @@
 package com.example.transportsystem.mapper;
 
-import com.example.transportsystem.dto.*;
+import com.example.transportsystem.dto.driver.DriverDto;
 import com.example.transportsystem.model.driver.*;
 import org.mapstruct.*;
 

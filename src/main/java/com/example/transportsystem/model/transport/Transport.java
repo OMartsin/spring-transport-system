@@ -12,7 +12,7 @@ public class Transport {
 
     @Basic(optional = false)
     @Column(nullable = false, length = 64)
-    private String name;
+    private String brand;
 
     @Basic(optional = false)
     @Column(nullable = false, length = 64)

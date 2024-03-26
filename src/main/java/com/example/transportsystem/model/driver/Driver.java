@@ -1,10 +1,12 @@
 package com.example.transportsystem.model.driver;
 
 import com.example.transportsystem.model.User;
+import com.example.transportsystem.model.order.Delivery;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -49,16 +51,19 @@ public class Driver {
     @Column(nullable = false)
     private Date birthDate;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @OneToMany(mappedBy = "driver")
+    private Set<Delivery> deliveries = new HashSet<>();
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "contract_id")
-    private Set<DriverContract> driverContract;
+    private Set<DriverContract> driverContract = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "driver_id")
-    private Set<DriverLicense> driverLicenses;
+    private Set<DriverLicense> driverLicenses = new HashSet<>();
 
 }

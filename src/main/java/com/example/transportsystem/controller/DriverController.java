@@ -1,7 +1,7 @@
 package com.example.transportsystem.controller;
 
-import com.example.transportsystem.dto.DriverDto;
-import com.example.transportsystem.service.DriverService;
+import com.example.transportsystem.dto.driver.DriverDto;
+import com.example.transportsystem.service.driver.DriverService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +24,12 @@ public class DriverController {
     }
 
     @PostMapping
-    public DriverDto create(DriverDto driverDto) {
+    public DriverDto create(@RequestBody DriverDto driverDto) {
         return driverService.save(driverDto);
     }
 
     @PutMapping("/{id}")
-    public DriverDto update(@PathVariable Long id, DriverDto driverDto) {
+    public DriverDto update(@PathVariable Long id, @RequestBody DriverDto driverDto) {
         driverDto.setId(id);
         return driverService.update(driverDto);
     }

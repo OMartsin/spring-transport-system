@@ -1,0 +1,17 @@
+package com.example.transportsystem.service.driver;
+
+import com.example.transportsystem.dto.driver.DriverDto;
+
+import java.util.List;
+
+public interface DriverService {
+    List<DriverDto> findAll();
+
+    DriverDto findById(Long id);
+
+    DriverDto save(DriverDto driverDto);
+
+    DriverDto update(DriverDto driverDto);
+
+    void deleteById(Long id);
+}

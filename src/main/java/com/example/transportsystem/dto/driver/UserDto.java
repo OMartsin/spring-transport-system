@@ -1,4 +1,4 @@
-package com.example.transportsystem.dto;
+package com.example.transportsystem.dto.driver;
 
 import java.io.Serializable;
 

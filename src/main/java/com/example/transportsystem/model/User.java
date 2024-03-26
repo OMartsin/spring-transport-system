@@ -1,5 +1,6 @@
 package com.example.transportsystem.model;
 
+import com.example.transportsystem.model.driver.Driver;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,12 @@ public class User {
     @Basic(optional = false)
     @Column(nullable = false,  length = 128)
     private String password;
+
+    @OneToOne(mappedBy = "user")
+    private Client client;
+
+    @OneToOne(mappedBy = "user")
+    private Driver driver;
 
     public User(String login, String password) {
         this.login = login;

@@ -1,5 +1,6 @@
-package com.example.transportsystem.dto;
+package com.example.transportsystem.dto.driver;
 
+import com.example.transportsystem.dto.order.output.DeliveryOutputDto;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -20,7 +21,7 @@ public class DriverDto implements Serializable {
     private String phoneNumber;
     private String ipn;
     private Date birthDate;
-    private UserDto user;
+    private Set<DeliveryOutputDto> deliveries;
     private Set<DriverContractInputDto> driverContract;
     private Set<DriverLicenseDto> driverLicenses;
 }

@@ -1,7 +1,7 @@
 package com.example.transportsystem.util;
 
-import com.example.transportsystem.dto.DriverDto;
-import com.example.transportsystem.dto.DriverLicenseDto;
+import com.example.transportsystem.dto.driver.DriverDto;
+import com.example.transportsystem.dto.driver.DriverLicenseDto;
 import com.example.transportsystem.mapper.DriverMapper;
 import com.example.transportsystem.model.driver.Driver;
 import com.example.transportsystem.model.driver.DriverLicenseCategory;

@@ -1,9 +1,13 @@
 package com.example.transportsystem.model;
 
+import com.example.transportsystem.model.order.Order;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "client")
@@ -40,9 +44,12 @@ public class Client {
     @Column(nullable = true, length = 8)
     private String mfo;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public Client(String name, String address, String edrpou, String ipn, String iban, String bank, String mfo) {
         this.name = name;

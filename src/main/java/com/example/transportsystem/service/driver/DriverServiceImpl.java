@@ -1,6 +1,6 @@
-package com.example.transportsystem.service;
+package com.example.transportsystem.service.driver;
 
-import com.example.transportsystem.dto.DriverDto;
+import com.example.transportsystem.dto.driver.DriverDto;
 import com.example.transportsystem.model.User;
 import com.example.transportsystem.model.driver.Driver;
 import com.example.transportsystem.repository.DriverRepository;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class DriverService {
+public class DriverServiceImpl implements DriverService {
     private final DriverRepository driverRepository;
     private final DriverMappingUtility driverMappingUtility;
     private final UserRepository userRepository;
