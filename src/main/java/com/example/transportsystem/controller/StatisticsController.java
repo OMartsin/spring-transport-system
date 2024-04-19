@@ -5,7 +5,6 @@ import com.example.transportsystem.dto.statistics.CommonStatisticsResponse;
 import com.example.transportsystem.dto.statistics.OrderStatisticsResponse;
 import com.example.transportsystem.dto.statistics.ProfitResponse;
 import com.example.transportsystem.service.statistics.StatisticsService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

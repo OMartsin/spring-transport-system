@@ -1,6 +1,5 @@
 package com.example.transportsystem.repository;
 
-import com.example.transportsystem.model.FinanceOperations;
 import com.example.transportsystem.model.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 

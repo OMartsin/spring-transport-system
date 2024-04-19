@@ -5,7 +5,6 @@ import com.example.transportsystem.dto.statistics.CommonStatisticsResponse;
 import com.example.transportsystem.dto.statistics.OrderStatisticsResponse;
 import com.example.transportsystem.dto.statistics.ProfitResponse;
 import com.example.transportsystem.model.FinanceOperations;
-import com.example.transportsystem.model.order.Order;
 import com.example.transportsystem.repository.ClientRepository;
 import com.example.transportsystem.repository.DriverRepository;
 import com.example.transportsystem.repository.FinanceOperationsRepository;

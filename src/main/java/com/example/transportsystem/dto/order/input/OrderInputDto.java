@@ -4,7 +4,6 @@ import com.example.transportsystem.model.order.Order;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * DTO for {@link Order}
