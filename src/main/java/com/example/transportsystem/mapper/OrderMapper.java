@@ -12,7 +12,7 @@ public interface OrderMapper {
 
     @AfterMapping
     default void linkDeliveries(@MappingTarget Order order) {
-        order.getDeliveries().forEach(delivery -> delivery.setOrder(order));
+        order.getDelivery().setOrder(order);
     }
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

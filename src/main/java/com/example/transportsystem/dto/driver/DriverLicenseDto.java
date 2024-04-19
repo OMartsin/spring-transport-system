@@ -12,6 +12,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 public class DriverLicenseDto implements Serializable {
+    private Long id;
     private String number;
     private Date issueDate;
     private Date expirationDate;

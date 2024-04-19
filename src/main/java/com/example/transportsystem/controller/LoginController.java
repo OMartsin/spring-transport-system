@@ -30,7 +30,7 @@ public class LoginController {
                     authenticationManager.authenticate(new UsernamePasswordAuthenticationToken
                             (userDto.login(), userDto.password()));
             String login = authentication.getName();
-            User user = new User(login,"1234");
+            User user = new User(login, userDto.password());
             String token = jwtUtil.createToken(user, "ADMIN");
             UserTokenDto loginRes = new UserTokenDto(login,token);
 
@@ -53,7 +53,7 @@ public class LoginController {
                     authenticationManager.authenticate(new UsernamePasswordAuthenticationToken
                             (userDto.login(), userDto.password()));
             String login = authentication.getName();
-            User user = new User(login,"1234");
+            User user = new User(login, userDto.password());
             String token = jwtUtil.createToken(user, "DRIVER");
             UserTokenDto loginRes = new UserTokenDto(login,token);
 
@@ -76,7 +76,7 @@ public class LoginController {
                     authenticationManager.authenticate(new UsernamePasswordAuthenticationToken
                             (userDto.login(), userDto.password()));
             String login = authentication.getName();
-            User user = new User(login,"1234");
+            User user = new User(login, userDto.password());
             String token = jwtUtil.createToken(user, "CLIENT");
             UserTokenDto loginRes = new UserTokenDto(login,token);
 

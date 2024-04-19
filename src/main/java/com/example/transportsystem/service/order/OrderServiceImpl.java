@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderOutputDto save(OrderInputDto order) {
         Order order1 = orderMappingUtil.toEntity(order);
         var resultOrder = orderMapper.toDto(orderRepository.save(order1));
-        deliveryRepository.saveAll(order1.getDeliveries());
+        deliveryRepository.save(order1.getDelivery());
         return resultOrder;
     }
 

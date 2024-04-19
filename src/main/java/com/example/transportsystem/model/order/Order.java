@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 @Entity
 @Table(name = "del_order")
@@ -21,7 +20,7 @@ public class Order {
     @Column(nullable = false, length = 32)
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
@@ -33,7 +32,8 @@ public class Order {
     @Column(nullable = false)
     private Timestamp departureDate;
 
-    @OneToMany(mappedBy = "order")
-    private List<Delivery> deliveries;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "delivery_id", nullable = false)
+    private Delivery delivery;
 
 }

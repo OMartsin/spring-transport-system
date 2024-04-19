@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/trailer")
+@RequestMapping("/trailer")
 @RequiredArgsConstructor
 public class TrailerController {
     private final TrailerService trailerService;

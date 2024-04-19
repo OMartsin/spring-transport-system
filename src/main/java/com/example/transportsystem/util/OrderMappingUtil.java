@@ -25,8 +25,8 @@ public class OrderMappingUtil {
     public Order toEntity(OrderInputDto orderInputDto) {
         Order order = orderMapper.toEntity(orderInputDto);
         order.setClient(clientRepository.findById(orderInputDto.clientId()).orElse(null));
-        order.setDeliveries(orderInputDto.deliveries().stream().map(this::deliveryDtoToEntity).toList());
-        order.getDeliveries().forEach(delivery -> delivery.setOrder(order));
+        order.setDelivery(deliveryMapper.toEntity(orderInputDto.delivery()));
+        order.getDelivery().setOrder(order);
         System.out.println(order);
         return order;
     }

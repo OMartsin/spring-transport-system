@@ -24,12 +24,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByLogin(login);
         List<String> roles = new ArrayList<>();
         roles.add("USER");
-        UserDetails userDetails =
-                org.springframework.security.core.userdetails.User.builder()
-                        .username(user.getLogin())
-                        .password(user.getPassword())
-                        .roles(roles.toArray(new String[0]))
-                        .build();
-        return userDetails;
+        return org.springframework.security.core.userdetails.User.builder()
+                .username(user.getLogin())
+                .password(user.getPassword())
+                .roles(roles.toArray(new String[0]))
+                .build();
     }
 }

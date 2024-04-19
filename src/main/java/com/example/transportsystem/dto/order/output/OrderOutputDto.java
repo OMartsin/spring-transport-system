@@ -10,5 +10,5 @@ import java.util.List;
  * DTO for {@link Order}
  */
 public record OrderOutputDto(Long id, String name, String clientName, Double price, Timestamp departureDate,
-                             List<DeliveryOutputDto> deliveries) implements Serializable {
+                             DeliveryOutputDto delivery) implements Serializable {
 }

@@ -19,19 +19,19 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "trailer_id", nullable = false)
     private Trailer trailer;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "truck_id", nullable = false)
     private Truck truck;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "driver_id", nullable = false)
     private Driver driver;
 
-    @ManyToOne
+    @OneToOne(mappedBy = "delivery")
     private Order order;
 
     @OneToMany(mappedBy = "delivery")

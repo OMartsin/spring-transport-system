@@ -10,5 +10,5 @@ import java.util.List;
  * DTO for {@link Delivery}
  */
 public record DeliveryInputDto(@NotNull Long trailerId, @NotNull Long truckId, @NotNull Long driverId,
-                               @NotNull List<DeliveryLogInputDto> deliveryLogs) implements Serializable {
+                               List<DeliveryLogInputDto> deliveryLogs) implements Serializable {
 }
