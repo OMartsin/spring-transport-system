@@ -2,6 +2,7 @@ package com.example.transportsystem.service.trailer;
 
 import com.example.transportsystem.dto.trailer.TrailerInputDto;
 import com.example.transportsystem.dto.trailer.TrailerOutputDto;
+import com.example.transportsystem.dto.trailer.TrailerOutputListDto;
 import com.example.transportsystem.mapper.TrailerMapper;
 import com.example.transportsystem.repository.TrailerRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,8 @@ public class TrailerServiceImpl implements TrailerService {
     private final TrailerRepository trailerRepository;
     private final TrailerMapper trailerMapper;
 
-    public List<TrailerOutputDto> findAll(){
-        return trailerRepository.findAll().stream().map(trailerMapper::toDto).toList();
+    public List<TrailerOutputListDto> findAll(){
+        return trailerRepository.findAll().stream().map(trailerMapper::toListDto).toList();
     }
 
     public TrailerOutputDto findById(Long id){

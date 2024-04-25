@@ -1,6 +1,7 @@
 package com.example.transportsystem.mapper;
 
 import com.example.transportsystem.dto.driver.DriverDto;
+import com.example.transportsystem.dto.driver.DriverOutputListDto;
 import com.example.transportsystem.model.driver.*;
 import org.mapstruct.*;
 
@@ -15,6 +16,8 @@ public interface DriverMapper {
     }
 
     DriverDto toDto(Driver driver);
+
+    DriverOutputListDto toListDto(Driver driver);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Driver partialUpdate(DriverDto driverDto, @MappingTarget Driver driver);

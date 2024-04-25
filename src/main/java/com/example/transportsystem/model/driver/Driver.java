@@ -66,4 +66,8 @@ public class Driver {
     @JoinColumn(name = "driver_id")
     private Set<DriverLicense> driverLicenses = new HashSet<>();
 
+    public String getFullName() {
+        return name + " " + surname + " " + patronymic + " " + passportNumber;
+    }
+
 }

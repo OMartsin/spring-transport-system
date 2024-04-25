@@ -44,11 +44,11 @@ public class Client {
     @Column(nullable = true, length = 8)
     private String mfo;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
     public Client(String name, String address, String edrpou, String ipn, String iban, String bank, String mfo) {

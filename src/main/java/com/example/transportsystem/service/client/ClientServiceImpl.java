@@ -2,6 +2,7 @@ package com.example.transportsystem.service.client;
 
 import com.example.transportsystem.dto.client.ClientInputDto;
 import com.example.transportsystem.dto.client.ClientOutputDto;
+import com.example.transportsystem.dto.client.ClientOutputListDto;
 import com.example.transportsystem.mapper.ClientMapper;
 import com.example.transportsystem.model.Client;
 import com.example.transportsystem.model.User;
@@ -20,8 +21,8 @@ public class ClientServiceImpl implements ClientService{
     private final ClientMapper clientMapper;
 
     @Override
-    public List<ClientOutputDto> findAll() {
-        return clientRepository.findAll().stream().map(clientMapper::toDto).toList();
+    public List<ClientOutputListDto> findAll() {
+        return clientRepository.findAll().stream().map(clientMapper::toListDto).toList();
     }
 
     @Override

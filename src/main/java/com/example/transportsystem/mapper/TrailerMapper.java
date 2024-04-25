@@ -1,5 +1,6 @@
 package com.example.transportsystem.mapper;
 
+import com.example.transportsystem.dto.trailer.TrailerOutputListDto;
 import com.example.transportsystem.model.transport.trailer.Trailer;
 import com.example.transportsystem.dto.trailer.TrailerInputDto;
 import com.example.transportsystem.dto.trailer.TrailerOutputDto;
@@ -7,7 +8,7 @@ import com.example.transportsystem.model.transport.trailer.TrailerType;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING,
-    uses = {DeliveryMapper.class})
+        uses = {DeliveryMapper.class})
 public interface TrailerMapper {
     @Mapping(target = "trailerType", expression = "java(trailerTypeMapping(trailerInputDto.trailerType()))")
     Trailer toEntity(TrailerInputDto trailerInputDto);
@@ -26,4 +27,10 @@ public interface TrailerMapper {
         return trailerType.getName();
     }
 
+    Trailer toEntity(TrailerOutputListDto trailerOutputListDto);
+
+    TrailerOutputListDto toListDto(Trailer trailer);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    Trailer partialUpdate(TrailerOutputListDto trailerOutputListDto, @MappingTarget Trailer trailer);
 }

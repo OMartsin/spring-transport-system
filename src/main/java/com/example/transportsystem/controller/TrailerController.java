@@ -2,6 +2,7 @@ package com.example.transportsystem.controller;
 
 import com.example.transportsystem.dto.trailer.TrailerInputDto;
 import com.example.transportsystem.dto.trailer.TrailerOutputDto;
+import com.example.transportsystem.dto.trailer.TrailerOutputListDto;
 import com.example.transportsystem.service.trailer.TrailerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class TrailerController {
     private final TrailerService trailerService;
 
     @GetMapping
-    public List<TrailerOutputDto> findAll() {
+    public List<TrailerOutputListDto> findAll() {
         return trailerService.findAll();
     }
 

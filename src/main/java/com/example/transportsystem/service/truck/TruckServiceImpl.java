@@ -2,6 +2,7 @@ package com.example.transportsystem.service.truck;
 
 import com.example.transportsystem.dto.truck.TruckInputDto;
 import com.example.transportsystem.dto.truck.TruckOutputDto;
+import com.example.transportsystem.dto.truck.TruckOutputListDto;
 import com.example.transportsystem.mapper.TruckMapper;
 import com.example.transportsystem.repository.TruckRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,8 @@ public class TruckServiceImpl implements TruckService {
     private final TruckRepository truckRepository;
     private final TruckMapper truckMapper;
 
-    public List<TruckOutputDto> findAll(){
-        return truckRepository.findAll().stream().map(truckMapper::toDto).toList();
+    public List<TruckOutputListDto> findAll(){
+        return truckRepository.findAll().stream().map(truckMapper::toListDto).toList();
     }
 
     public TruckOutputDto findById(Long id){

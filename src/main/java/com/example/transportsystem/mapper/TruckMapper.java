@@ -2,6 +2,7 @@ package com.example.transportsystem.mapper;
 
 import com.example.transportsystem.dto.truck.TruckInputDto;
 import com.example.transportsystem.dto.truck.TruckOutputDto;
+import com.example.transportsystem.dto.truck.TruckOutputListDto;
 import com.example.transportsystem.model.transport.truck.FuelType;
 import com.example.transportsystem.model.transport.truck.Truck;
 import org.mapstruct.Mapper;
@@ -15,6 +16,8 @@ public interface TruckMapper {
     Truck toEntity(TruckInputDto truckinputDto);
     @Mapping(target = "fuelType", expression = "java(fuelTypeMapping(truck.getFuelType()))")
     TruckOutputDto toDto(Truck truck);
+
+    TruckOutputListDto toListDto(Truck truck);
 
     default String fuelTypeMapping(FuelType fuelType) {
         return fuelType.name();

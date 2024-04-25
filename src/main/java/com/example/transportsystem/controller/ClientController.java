@@ -2,6 +2,7 @@ package com.example.transportsystem.controller;
 
 import com.example.transportsystem.dto.client.ClientInputDto;
 import com.example.transportsystem.dto.client.ClientOutputDto;
+import com.example.transportsystem.dto.client.ClientOutputListDto;
 import com.example.transportsystem.service.client.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class ClientController {
     private final ClientService clientService;
 
     @GetMapping
-    public List<ClientOutputDto> findAll() {
+    public List<ClientOutputListDto> findAll() {
         return clientService.findAll();
     }
 

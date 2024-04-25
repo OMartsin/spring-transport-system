@@ -1,11 +1,12 @@
 package com.example.transportsystem.service.driver;
 
 import com.example.transportsystem.dto.driver.DriverDto;
+import com.example.transportsystem.dto.driver.DriverOutputListDto;
 
 import java.util.List;
 
 public interface DriverService {
-    List<DriverDto> findAll();
+    List<DriverOutputListDto> findAll();
 
     DriverDto findById(Long id);
 

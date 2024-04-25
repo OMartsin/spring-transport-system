@@ -2,6 +2,7 @@ package com.example.transportsystem.mapper;
 
 import com.example.transportsystem.dto.client.ClientInputDto;
 import com.example.transportsystem.dto.client.ClientOutputDto;
+import com.example.transportsystem.dto.client.ClientOutputListDto;
 import com.example.transportsystem.model.Client;
 import org.mapstruct.*;
 
@@ -11,6 +12,8 @@ public interface ClientMapper {
     Client toEntity(ClientInputDto clientOutputDto);
 
     ClientOutputDto toDto(Client client);
+
+    ClientOutputListDto toListDto(Client client);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Client partialUpdate(ClientInputDto clientOutputDto, @MappingTarget Client client);

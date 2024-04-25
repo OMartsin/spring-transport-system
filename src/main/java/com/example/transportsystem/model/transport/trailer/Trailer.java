@@ -26,4 +26,8 @@ public class Trailer extends Transport {
     @OneToMany(mappedBy = "trailer")
     private Set<Delivery> deliveries = new HashSet<>();
 
+    public String getFullName() {
+        return getBrand() + " " + getModel();
+    }
+
 }

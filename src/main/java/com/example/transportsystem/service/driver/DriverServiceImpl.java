@@ -1,6 +1,8 @@
 package com.example.transportsystem.service.driver;
 
 import com.example.transportsystem.dto.driver.DriverDto;
+import com.example.transportsystem.dto.driver.DriverOutputListDto;
+import com.example.transportsystem.mapper.DriverMapper;
 import com.example.transportsystem.model.User;
 import com.example.transportsystem.model.driver.Driver;
 import com.example.transportsystem.repository.DriverRepository;
@@ -16,10 +18,11 @@ import java.util.List;
 public class DriverServiceImpl implements DriverService {
     private final DriverRepository driverRepository;
     private final DriverMappingUtility driverMappingUtility;
+    private final DriverMapper driverMapper;
     private final UserRepository userRepository;
 
-    public List<DriverDto> findAll() {
-        return driverRepository.findAll().stream().map(driverMappingUtility::toDto).toList();
+    public List<DriverOutputListDto> findAll() {
+        return driverRepository.findAll().stream().map(driverMapper::toListDto).toList();
     }
 
     public DriverDto findById(Long id) {

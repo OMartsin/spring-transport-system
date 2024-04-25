@@ -22,6 +22,7 @@ public class JwtUtil {
     public String createToken(User user, String role) {
         Claims claims = Jwts.claims().setSubject(user.getLogin());
         claims.put("role", role);
+        claims.put("login", user.getLogin());
 
         Date tokenCreateTime = new Date();
         Date tokenValidity = new Date(tokenCreateTime.getTime() + TimeUnit.MINUTES.toMillis(accessTokenValidity));
@@ -31,7 +32,7 @@ public class JwtUtil {
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
-    private Claims parseJwtClaims(String token) {
+    public Claims parseJwtClaims(String token) {
         return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
     }
 
@@ -69,6 +70,14 @@ public class JwtUtil {
 
     public String getRole(Claims claims) {
         return (String) claims.get("role");
+    }
+
+    public String getRole(String token){
+        return (String) parseJwtClaims(token).get("role");
+    }
+
+    public String getLogin(String token) {
+        return (String) parseJwtClaims(token).get("login");
     }
 
 

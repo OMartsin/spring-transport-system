@@ -4,6 +4,8 @@ import com.example.transportsystem.dto.order.input.DeliveryLogInputDto;
 import com.example.transportsystem.dto.order.output.DeliveryOutputDto;
 import com.example.transportsystem.dto.order.input.OrderInputDto;
 import com.example.transportsystem.dto.order.output.OrderOutputDto;
+import com.example.transportsystem.dto.order.output.OrderOutputListDto;
+import com.example.transportsystem.dto.order.output.OrderForAddData;
 import com.example.transportsystem.service.order.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +19,7 @@ public class OrderController {
     private final OrderService orderService;
 
     @GetMapping
-    public List<OrderOutputDto> findAll() {
+    public List<OrderOutputListDto> findAll() {
         return orderService.findAll();
     }
 
@@ -45,5 +47,10 @@ public class OrderController {
     public DeliveryOutputDto addDeliveryLog(@PathVariable Long deliveryId,
                                             @RequestBody DeliveryLogInputDto deliveryLog) {
         return orderService.addDeliveryLog(deliveryId, deliveryLog);
+    }
+
+    @GetMapping("/for-add-form")
+    public OrderForAddData findFormData() {
+        return orderService.findDataForAdd();
     }
 }

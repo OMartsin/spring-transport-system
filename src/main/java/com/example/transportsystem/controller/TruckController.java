@@ -2,6 +2,7 @@ package com.example.transportsystem.controller;
 
 import com.example.transportsystem.dto.truck.TruckInputDto;
 import com.example.transportsystem.dto.truck.TruckOutputDto;
+import com.example.transportsystem.dto.truck.TruckOutputListDto;
 import com.example.transportsystem.service.truck.TruckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class TruckController {
     private final TruckService truckService;
 
     @GetMapping
-    public List<TruckOutputDto> findAll() {
+    public List<TruckOutputListDto> findAll() {
         return truckService.findAll();
     }
 
@@ -29,9 +30,8 @@ public class TruckController {
         return truckService.save(truck);
     }
 
-    @PutMapping("/{id}")
-    public TruckOutputDto update(Long id, @RequestBody TruckInputDto truck) {
-        truck.setId(id);
+    @PutMapping
+    public TruckOutputDto update(@RequestBody TruckInputDto truck) {
         return truckService.update(truck);
     }
 

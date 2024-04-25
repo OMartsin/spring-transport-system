@@ -1,6 +1,7 @@
 package com.example.transportsystem.dto.order.input;
 
 import com.example.transportsystem.model.order.Order;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -8,6 +9,6 @@ import java.sql.Timestamp;
 /**
  * DTO for {@link Order}
  */
-public record OrderInputDto(Long id, String name, Long clientId, Double price, Timestamp departureDate,
-                            DeliveryInputDto delivery) implements Serializable {
+public record OrderInputDto(@NotNull Long id,@NotNull String name,@NotNull Long clientId,@NotNull Double price,
+                            @NotNull Timestamp departureDate, @NotNull DeliveryInputDto delivery) implements Serializable {
 }

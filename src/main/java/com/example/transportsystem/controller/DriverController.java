@@ -1,6 +1,7 @@
 package com.example.transportsystem.controller;
 
 import com.example.transportsystem.dto.driver.DriverDto;
+import com.example.transportsystem.dto.driver.DriverOutputListDto;
 import com.example.transportsystem.service.driver.DriverService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,7 @@ public class DriverController {
     private final DriverService driverService;
 
     @GetMapping
-    public List<DriverDto> findAll() {
+    public List<DriverOutputListDto> findAll() {
         return driverService.findAll();
     }
 
@@ -28,9 +29,8 @@ public class DriverController {
         return driverService.save(driverDto);
     }
 
-    @PutMapping("/{id}")
-    public DriverDto update(@PathVariable Long id, @RequestBody DriverDto driverDto) {
-        driverDto.setId(id);
+    @PutMapping
+    public DriverDto update(@RequestBody DriverDto driverDto) {
         return driverService.update(driverDto);
     }
 

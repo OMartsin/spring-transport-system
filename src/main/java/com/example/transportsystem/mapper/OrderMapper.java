@@ -1,6 +1,7 @@
 package com.example.transportsystem.mapper;
 
 import com.example.transportsystem.dto.order.input.OrderInputDto;
+import com.example.transportsystem.dto.order.output.OrderOutputListDto;
 import com.example.transportsystem.model.order.Order;
 import com.example.transportsystem.dto.order.output.OrderOutputDto;
 import org.mapstruct.*;
@@ -20,6 +21,8 @@ public interface OrderMapper {
 
     @Mapping(target = "clientName", source = "client.name")
     OrderOutputDto toDto(Order order);
+
+    OrderOutputListDto toListDto(Order order);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Order partialUpdate(OrderOutputDto orderOutputDto, @MappingTarget Order order);
