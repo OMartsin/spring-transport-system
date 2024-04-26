@@ -7,6 +7,7 @@ import com.example.transportsystem.repository.FinanceOperationsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,11 +17,12 @@ public class FinanceOperationServiceImpl implements FinanceOperationService{
     private final FinanceOperationsMapper finMapper;
 
     public Page<FinanceOperationResponse> findAll(int page, int size){
-        if(size == -1){
-            return financeOperationsRepository.findAll(PageRequest.of(page, Integer.MAX_VALUE)).map(finMapper::toDto);
-        }
-        var pageRequest = PageRequest.of(page, size);
-        return financeOperationsRepository.findAll(pageRequest).map(finMapper::toDto);
+        if(size < 0 || page < 0)
+            return financeOperationsRepository.findAll(PageRequest.of(0,
+                            Integer.MAX_VALUE, Sort.by("timestamp").descending()))
+                    .map(finMapper::toDto);
+        return financeOperationsRepository.findAll(PageRequest.of(page, size, Sort.by("timestamp").descending()))
+                .map(finMapper::toDto);
     }
 
     public FinanceOperationResponse save(FinanceOperationRequest financeOperationRequest){

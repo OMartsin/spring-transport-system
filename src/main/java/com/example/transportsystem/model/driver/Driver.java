@@ -51,11 +51,11 @@ public class Driver {
     @Column(nullable = false)
     private Date birthDate;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "driver")
+    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
     private Set<Delivery> deliveries = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL)

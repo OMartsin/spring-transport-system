@@ -39,7 +39,7 @@ public class FinanceOperations {
     @Column(nullable = false, length = 128)
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 
